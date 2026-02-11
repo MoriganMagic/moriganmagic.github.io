@@ -64,6 +64,36 @@ p {
     color: #888;
     margin-top: 60px;
 }
+/* Эффект дыма */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url("https://www.transparenttextures.com/patterns/smoke.png");
+    opacity: 0.08;
+    animation: smokeMove 60s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes smokeMove {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-25%, -25%);
+    }
+}
+
+/* чтобы текст был поверх дыма */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
 </style>
 </head>
 
