@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>MoriganMagic</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
     margin: 0;
@@ -13,25 +14,54 @@ body {
     background-color: #000;
     color: #eee;
 }
+
+/* Магический туман */
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(120,0,255,0.15), transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(255,255,255,0.05), transparent 60%);
+    animation: fogMove 40s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes fogMove {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(5%, 5%); }
+    100% { transform: translate(0,0); }
+}
+
 .container {
     max-width: 900px;
     margin: auto;
     padding: 40px 20px;
+    position: relative;
+    z-index: 1;
 }
+
 h1 {
     font-size: 48px;
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(140,77,255,0.8);
 }
+
 h2 {
     margin-top: 50px;
     border-bottom: 1px solid #444;
     padding-bottom: 10px;
 }
+
 p {
     line-height: 1.7;
     font-size: 18px;
 }
+
 .button {
     display: inline-block;
     margin-top: 20px;
@@ -41,74 +71,58 @@ p {
     text-decoration: none;
     border-radius: 30px;
     transition: 0.3s;
+    box-shadow: 0 0 15px rgba(107,28,255,0.6);
 }
+
+.button:hover {
+    background: #8c4dff;
+    transform: scale(1.05);
+}
+
 .tiktok {
     background: #111;
     border: 1px solid #6b1cff;
 }
+
 .tiktok:hover {
     background: #222;
-}    
-.button:hover {
-    background: #8c4dff;
 }
+
 .service {
     background: rgba(255,255,255,0.05);
     padding: 20px;
     border-radius: 15px;
     margin-top: 20px;
+    backdrop-filter: blur(5px);
 }
+
 .footer {
     text-align: center;
     font-size: 14px;
     color: #888;
     margin-top: 60px;
 }
-/* Эффект дыма */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: url("https://www.transparenttextures.com/patterns/smoke.png");
-    opacity: 0.08;
-    animation: smokeMove 60s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-}
-
-@keyframes smokeMove {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(-25%, -25%);
-    }
-}
-
-/* чтобы текст был поверх дыма */
-.container {
-    position: relative;
-    z-index: 1;
-}
-
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <h1>MoriganMagic</h1>
+
 <p style="text-align:center;">
-Индивидуальные практики и консультации.  
+Индивидуальные практики и консультации.<br>
 Работа с энергиями. Конфиденциально.
 </p>
 
 <div style="text-align:center;">
-<a class="button" href="https://t.me/MoriganMagic">Написать в Telegram</a>
+<a class="button" href="https://t.me/MoriganMagic" target="_blank">
+Написать в Telegram
+</a>
+
 <br><br>
+
 <a class="button tiktok" href="https://www.tiktok.com/@aciataro666" target="_blank">
 Мой TikTok
 </a>
@@ -116,8 +130,8 @@ body::after {
 
 <h2>Обо мне</h2>
 <p>
-Я работаю с символами, интуицией и энергетическими практиками.  
-Каждый запрос рассматривается индивидуально.  
+Я работаю с символами, интуицией и энергетическими практиками.
+Каждый запрос рассматривается индивидуально.
 Моя цель — помочь вам лучше понять ситуацию и найти путь к гармонии.
 </p>
 
@@ -141,12 +155,12 @@ body::after {
 <h2>Отзывы</h2>
 <p>
 «Очень точное попадание в ситуацию. После консультации стало спокойнее.»  
-<br>— Спасибо Анастасии!
+<br>— Благодарный клиент
 </p>
 
 <h2>Контакты</h2>
 <p>
-Telegram: <a href="https://t.me/MoriganMagic" style="color:#8c4dff;">@MoriganMagic</a><br>
+Telegram: <a href="https://t.me/MoriganMagic" style="color:#8c4dff;" target="_blank">@MoriganMagic</a><br>
 Ответ в течение дня.
 </p>
 
@@ -155,5 +169,6 @@ Telegram: <a href="https://t.me/MoriganMagic" style="color:#8c4dff;">@MoriganMag
 </div>
 
 </div>
+
 </body>
 </html>
